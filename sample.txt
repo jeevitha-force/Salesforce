@@ -1,2 +1,2 @@
-This is the sample text
+This is the simple text
 I know what 
