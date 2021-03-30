@@ -1,0 +1,3 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+	This is my new custom lightning component.
+</aura:component>

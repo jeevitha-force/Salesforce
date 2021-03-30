@@ -1,0 +1,6 @@
+<apex:page controller="VF3_Con" >
+    <apex:form >
+    <apex:outputText value="{!a}"></apex:outputText>
+    <apex:commandButton value="Call Method" action="{!method1}"/>
+        </apex:form>
+</apex:page>
