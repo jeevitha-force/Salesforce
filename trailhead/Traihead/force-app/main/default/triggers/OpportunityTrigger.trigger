@@ -1,5 +1,5 @@
-trigger OpportunityTrigger on Opportunity (before insert) {
-    if(trigger.isBefore){
+trigger OpportunityTrigger on Opportunity (before insert, after insert) {
+    if(trigger.isAfter){
         if(trigger.isInsert){
             OpportunityHelper.OpportunityTask(Trigger.new);
         }
