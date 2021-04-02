@@ -1,0 +1,5 @@
+<apex:page standardController="Account" >
+    <apex:outputField value="{!Account.Name}"/>
+    <apex:outputField value="{!Account.Industry}"/>
+  
+</apex:page>

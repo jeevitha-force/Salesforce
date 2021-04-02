@@ -1,0 +1,34 @@
+<apex:page Controller="VF5_Con">
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection title="Account Information">
+        <apex:inputField value="{!Acc.name}"/>
+        <apex:inputField value="{!Acc.ParentId}"/>
+        <apex:inputField value="{!Acc.Type}"/>
+        <apex:inputField value="{!Acc.Industry}"/>
+            
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection title="Address Information">
+        
+        
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection title="Custom Fields Section">
+        
+        
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection title="Additional Information">
+        
+        
+        </apex:pageBlockSection>
+        
+        <apex:CommandButton value="Save" action="{!SaveAccount}"></apex:CommandButton>
+        </apex:pageBlock>
+    
+    </apex:form>
+</apex:page>

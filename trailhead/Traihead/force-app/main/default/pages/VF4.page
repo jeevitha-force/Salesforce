@@ -1,0 +1,19 @@
+<apex:page controller="VF4_Con">
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+        
+        <apex:inputText label="Value A=" value="{!a}"/>
+        
+         <apex:inputText label="Value B=" value="{!b}"/>
+        
+        </apex:pageBlockSection>
+        
+        <apex:commandButton value="Add" action="{!Addition}"/>
+        
+       Result= <apex:outputText value="{!res}"></apex:outputText>
+        </apex:pageBlock>
+    
+    
+    </apex:form>
+</apex:page>
