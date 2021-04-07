@@ -22,6 +22,19 @@ public class AccountHelperTest {
         Account insertedValue = [SELECT  Name, Id,Rating FROM Account WHERE Name ='JeevTest'];
         System.assertEquals(insertedValue.Rating, 'Hot');
     }
+
+    @isTest
+    private static void deDuplicateAccountTest(){
+        Account a = new Account(Name = 'talaiva');
+        INSERT a;
+        try {
+            Account b = new Account(Name = 'talaiva');
+            INSERT b;
+            
+        } catch (Exception e) {
+            System.assert(e.getMessage().contains('Account with this name already exists'));
+        } 
+    }
 }
 
 
