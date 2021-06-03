@@ -24,7 +24,7 @@ public class AccountHelperTest {
     }
 
     @isTest
-    private static void deDuplicateAccountTest(){
+    private static void deDuplicateAccountTest(){ 
         Account a = new Account(Name = 'talaiva');
         INSERT a;
         try {
@@ -34,6 +34,28 @@ public class AccountHelperTest {
         } catch (Exception e) {
             System.assert(e.getMessage().contains('Account with this name already exists'));
         } 
+    }
+    @isTest 
+    private static void updateCityTest(){
+        Account a = new Account(Name = 'talaiva',City__c = 'Nellore');
+        INSERT a;
+        Opportunity o = new Opportunity(
+            Name = 'Test', 
+            City__c = 'Ongole',
+            AccountId = a.Id,
+            Type='Existing Customer - Upgrade',
+            CloseDate = Date.today(),
+            StageName = 'Qualification');
+        INSERT o;
+        //Opportunity op = new Opportunity(Name = 'West', City = 'Guntur',AccountId = a.Id);
+        
+        a.City__c = 'Muthukur';
+        UPDATE a;
+
+        Opportunity opp = [SELECT Name,City__c
+                        FROM Opportunity
+                        WHERE Id =: o.Id];
+        System.assertEquals(opp.City__c, 'Muthukur');
     }
 }
 
