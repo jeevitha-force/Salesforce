@@ -18,6 +18,10 @@ public with sharing class AccountHelper {
             }
         }
     }
+ /*
+ * for deduplicating Account names
+ * @param accList takes the new account list
+ */    
 
     public static void deDuplicateAccount(List<Account> accList){
         List<String> accNames = new List<String>();
@@ -35,4 +39,24 @@ public with sharing class AccountHelper {
             } 
         }
     }
+/*
+ * for updating the city on account and syn in Opportunity
+ * @param Listt takes the new Account list
+ */  
+    public static void updateCity(Map<Id,Account> oldMap,Map<Id,Account> newMap)
+    {
+        List<String> accIds = new List<String>();
+        for(Account a:newMap.values()){
+            if(a.City__c!=OldMap.get(a.Id).City__c){
+                accIds.add(a.Id);
+            }
+        }
+        List <Opportunity> opps = [SELECT Id, AccountId, City__c FROM Opportunity WHERE AccountId IN:accIds];
+        //List<Opportunity> oprt = new List<Opportunity>();
+        for(Opportunity o:opps){
+            o.City__c = NewMap.get(o.AccountId).City__c;
+        }
+        update opps;
+    }
+ 
 }
