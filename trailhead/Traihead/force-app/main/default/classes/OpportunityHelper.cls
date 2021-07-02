@@ -13,7 +13,6 @@ public with sharing class OpportunityHelper {
                 
             }
             INSERT tasks;
-        
 
     }
 }
